@@ -1,4 +1,4 @@
-name: climepi-web-app
+name: base
 channels:
   - conda-forge
   - nodefaults
