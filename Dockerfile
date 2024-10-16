@@ -13,8 +13,8 @@ RUN chmod 777 .chroma
 # RUN chown -R $MAMBA_USER:$MAMBA_USER /opt/conda
 # USER $MAMBA_USER
 
-#
-COPY --chown=$MAMBA_USER:$MAMBA_USER environment.yml /code/environment.yml
+# COPY --chown=$MAMBA_USER:$MAMBA_USER environment.yml /code/environment.yml
+COPY environment.yml /code/environment.yml
 RUN micromamba install -y -n base -f /code/environment.yml && \
     micromamba clean --all --yes
 
