@@ -8,6 +8,9 @@ RUN mkdir /.cache
 RUN chmod 777 /.cache
 RUN mkdir .chroma
 RUN chmod 777 .chroma
+RUN mkdir -p /home/mambauser/.cache && \
+    chown -R $MAMBA_USER:$MAMBA_USER /home/mambauser/.cache
+RUN chown -R $MAMBA_USER:$MAMBA_USER /opt/conda
 USER $MAMBA_USER
 
 COPY --chown=$MAMBA_USER:$MAMBA_USER environment.yml /code/environment.yml
