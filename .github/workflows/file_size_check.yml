@@ -7,6 +7,8 @@ on:
 jobs:
   sync-to-hub:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
     steps:
       - name: Check large files
         uses: ActionsDesk/lfs-warning@v2.0
