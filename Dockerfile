@@ -16,4 +16,4 @@ RUN micromamba install -y -n base -f /code/environment.yml && \
 
 COPY . .
 
-CMD ["panel", "serve", "/code/src/web_app.py", "--address", "0.0.0.0", "--port", "7860",  "--allow-websocket-origin", "*"]
+CMD panel serve /code/src/web_app.py --address 0.0.0.0 --port 7860 --allow-websocket-origin *
