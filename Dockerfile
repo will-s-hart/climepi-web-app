@@ -1,10 +1,10 @@
-FROM mambaorg/micromamba:1.5.8
+FROM mambaorg/micromamba:2.0.2
 
 WORKDIR /code
 
 USER root
 RUN apt-get update && apt-get install -y git && apt-get clean && rm -rf /var/lib/apt/lists/*
-USER mambauser
+USER $MAMBA_USER
 
 COPY --chown=$MAMBA_USER:$MAMBA_USER environment.yml /code/environment.yml
 RUN micromamba install -y -n base -f /code/environment.yml && \
