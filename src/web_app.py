@@ -2,7 +2,9 @@ import pathlib
 
 from climepi import climdata
 from climepi.app import get_app
+from dask.distributed import Client
 
+_ = Client()
 clim_dataset_example_base_dir = pathlib.Path(__file__).parents[1] / "data"
 clim_dataset_example_names = [
     name

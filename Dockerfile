@@ -1,14 +1,30 @@
-FROM mambaorg/micromamba:2.0.2
+FROM daskdev/dask:latest
+
+ENV EXTRA_APT_PACKAGES="git"
+ENV EXTRA_CONDA_PACKAGES="-c conda-forge \
+    bottleneck \
+    dask \
+    flox \
+    geopy \
+    geoviews \
+    hvplot \
+    intake \
+    intake-esm \
+    nc-time-axis \
+    numpy \
+    pandas \
+    panel \
+    param \
+    pooch \
+    requests \
+    s3fs \
+    urllib3 \
+    xarray!=2024.10.0 \
+    xcdat"
+ENV EXTRA_PIP_PACKAGES="--no-deps git+https://github.com/will-s-hart/climate-epidemics.git"
+ENV USE_MAMBA="true"
 
 WORKDIR /code
-USER root
-
-RUN apt-get update && apt-get install -y git && apt-get clean && rm -rf /var/lib/apt/lists/*
-
-COPY environment.yml /tmp/environment.yml
-RUN micromamba install -y -n base -f /tmp/environment.yml && \
-    micromamba clean --all --yes
-
 COPY . .
 
 CMD ["panel", "serve", "/code/src/web_app.py", "--address", "0.0.0.0", "--port", "7860",  "--allow-websocket-origin", "*"]
