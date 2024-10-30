@@ -1,7 +1,8 @@
 FROM daskdev/dask:latest
 
-ENV EXTRA_APT_PACKAGES="git"
-ENV EXTRA_CONDA_PACKAGES="-c conda-forge \
+USER root
+
+RUN /opt/conda/bin/mamba install -c conda-forge \
     bottleneck \
     dask \
     flox \
@@ -20,9 +21,8 @@ ENV EXTRA_CONDA_PACKAGES="-c conda-forge \
     s3fs \
     urllib3 \
     xarray!=2024.10.0 \
-    xcdat"
-ENV EXTRA_PIP_PACKAGES="--no-deps git+https://github.com/will-s-hart/climate-epidemics.git"
-ENV USE_MAMBA="true"
+    xcdat
+RUN /opt/conda/bin/pip install --no-deps git+https://github.com/will-s-hart/climate-epidemics.git
 
 WORKDIR /code
 COPY . .
