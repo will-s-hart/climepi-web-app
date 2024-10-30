@@ -1,0 +1,28 @@
+name: base
+channels:
+  - conda-forge
+  - nodefaults
+dependencies:
+  # Core
+  - python
+  - pip
+  # Climepi dependencies
+  - bottleneck
+  - dask
+  - flox
+  - geopy
+  - geoviews  
+  - hvplot
+  - intake
+  - intake-esm  
+  - nc-time-axis
+  - numpy
+  - pandas
+  - panel
+  - param
+  - pooch
+  - requests
+  - s3fs
+  - urllib3
+  - xarray!=2024.10.0
+  - xcdat

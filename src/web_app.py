@@ -5,20 +5,16 @@ import os
 import pathlib
 
 from climepi import climdata
-from climepi.app import get_app
+from climepi.app import DASK_SCHEDULER_ADDRESS, get_app
 from dask.distributed import Client
 
 logger = logging.getLogger(__name__)
 logging.basicConfig(level=logging.INFO)
 
-try:
-    dask_scheduler_address = os.environ["DASK_SCHEDULER_ADDRESS"]
-except KeyError as e:
-    raise ValueError("DASK_SCHEDULER_ADDRESS environment variable not set") from e
-client = Client(dask_scheduler_address)
+client = Client(DASK_SCHEDULER_ADDRESS)
 logger.info(
     "Dask client connected to cluster at {%s} with {%s} workers",
-    dask_scheduler_address,
+    DASK_SCHEDULER_ADDRESS,
     len(client.ncores()),
 )
 
