@@ -18,8 +18,6 @@ RUN mkdir .chroma
 RUN chmod 777 .chroma
 
 COPY . .
-# RUN /opt/conda/bin/python -c "from climepi import climdata; climdata.get_example_dataset('isimip_cities', base_dir='/code/data')"
+RUN python -c "from climepi import climdata; climdata.get_example_dataset('isimip_cities', base_dir='/code/data')"
 
 CMD sh /code/src/run_cluster_app.sh
-# CMD ["python", "-m", "src.cluster"]
-# CMD ["panel", "serve", "/code/src/web_app_old.py", "--address", "0.0.0.0", "--port", "7860",  "--allow-websocket-origin", "*"]
