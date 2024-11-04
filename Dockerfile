@@ -21,4 +21,4 @@ COPY . .
 RUN python -c "from climepi import climdata; climdata.get_example_dataset('isimip_cities', base_dir='/code/data')"
 RUN chmod -R 755 /code/data
 
-CMD sh /code/src/run_cluster_app.sh
+CMD ["sh","/code/src/run_cluster_app.sh"]
