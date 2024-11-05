@@ -9,6 +9,7 @@ dependencies:
   # Climepi dependencies
   - bottleneck
   - dask
+  - datashader
   - flox
   - geopy
   - geoviews  
