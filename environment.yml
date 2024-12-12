@@ -3,28 +3,5 @@ channels:
   - conda-forge
   - nodefaults
 dependencies:
-  # Core
-  - python
-  - pip
-  # Climepi dependencies
-  - bottleneck
-  - dask
-  - datashader
-  - flox
-  - geopy
-  - geoviews  
-  - h5netcdf
-  - hvplot
-  - intake
-  - intake-esm  
-  - nc-time-axis
-  - numpy
-  - pandas
-  - panel
-  - param
-  - pooch
-  - requests
-  - s3fs
-  - urllib3
-  - xarray!=2024.10.0
-  - xcdat
+- python
+- climepi
