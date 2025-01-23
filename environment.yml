@@ -1,7 +1,0 @@
-name: base
-channels:
-  - conda-forge
-  - nodefaults
-dependencies:
-- python
-- climepi
