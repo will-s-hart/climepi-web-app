@@ -2,12 +2,12 @@
 name = "climepi-web-app"
 requires-python = ">=3.10"
 
-[tool.pixi.project]
+[tool.pixi.workspace]
 channels = ["conda-forge"]
 platforms = ["linux-64", "linux-aarch64", "osx-arm64", "osx-64", "win-64"]
 
 [tool.pixi.dependencies]
-climepi = "==0.4.1"
+climepi = "==0.6.5"
 
 [tool.pixi.feature.dev.dependencies]
 ruff = "*"
