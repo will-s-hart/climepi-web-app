@@ -3,6 +3,9 @@
 # Start the first process
 python -m climepi.app.cluster &
 
+# Give the cluster time to start
+sleep 10
+
 # Start the second process
 python -m src.web_app
 
