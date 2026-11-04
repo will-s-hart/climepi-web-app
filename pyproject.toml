@@ -18,3 +18,4 @@ prod = { features = [], solve-group = "prod" }
 
 [tool.pixi.feature.dev.tasks]
 lint = "ruff check"
+smoke-test = "bash ci/smoke_test.sh"
