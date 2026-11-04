@@ -8,7 +8,7 @@ RUN echo "#!/bin/bash" > /app/entrypoint.sh
 RUN cat /shell-hook >> /app/entrypoint.sh
 RUN echo 'exec "$@"' >> /app/entrypoint.sh
 
-RUN pixi r python -m src.get_data
+RUN pixi run --locked -e prod python -m src.get_data
 
 FROM ubuntu:latest AS production
 WORKDIR /app
